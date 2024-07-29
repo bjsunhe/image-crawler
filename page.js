@@ -2,3 +2,6 @@ document.querySelectorAll('a.x1i10hfl.xjbqb8w.x1ejq31n.xd10rxx.x1sy0etr.x17r0tee
 if (pattern.test(i.href)) {
     console.log("The string contains '/p/' or '/reel/'.");
 console.log(i.href)}})
+
+
+let allLinks=[]; document.querySelectorAll('img').forEach(i=>allLinks.push(i.src)); allLinks[2]
