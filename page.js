@@ -5,3 +5,32 @@ console.log(i.href)}})
 
 
 let allLinks=[]; document.querySelectorAll('img').forEach(i=>allLinks.push(i.src)); allLinks[2]
+
+
+
+// Function to download the image
+function downloadImage(url, filename) {
+    fetch(url)
+        .then(response => response.blob())
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.style.display = 'none';
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            alert('Your file has downloaded!'); // Optional
+        })
+        .catch(() => alert('Could not download the image'));
+}
+
+// Get the image URL
+//const imageUrl = document.querySelector('img').src; // or specify the exact image selector
+
+// Specify the filename
+const filename = 'downloaded_image.jpg'; // Change the filename and extension as needed
+
+// Download the image
+downloadImage(window.location.href, filename);
